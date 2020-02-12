@@ -1,11 +1,17 @@
 import React from 'react';
 import '../stylesheets/App.css';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import ArticlesProvider from '../context/ArticlesContext';
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <ArticlesProvider>
+      <Header />
+      <Main />
+      <Footer />
+    </ArticlesProvider>
   );
 }
 
