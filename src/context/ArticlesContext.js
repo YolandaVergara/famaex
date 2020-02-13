@@ -1,5 +1,4 @@
-import React, { createContext, useState } from 'react';
-import axios from 'axios';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const ArticlesContext = createContext();
 
@@ -7,22 +6,14 @@ export const ArticlesContext = createContext();
 const ArticlesProvider = (props) => {
 
   const [articles, saveArticles] = useState([]);
+  const url = 'http://5dfb6cf80301690014b8fb0a.mockapi.io/api/v1/reports';
 
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => saveArticles(data));
+  }, []);
 
-  const getArticles = async () => {
-    const url = 'http://5dfb6cf80301690014b8fb0a.mockapi.io/api/v1/reports';
-    axios
-    .get(`${url}`)
-    .then(response =>{
-      const articles = response.data;
-      saveArticles(articles);
-    })
-    .catch (error) {
-      console.log()
-    }
-    saveArticles(articles);
-  }
-  getArticles();
 
   return (
 

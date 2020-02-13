@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ArticlesContext } from '../context/ArticlesContext';
 
 const Main = () => {
+  const { articles } = useContext(ArticlesContext);
   return (
     <main>
       <section>Section</section>
       <article>
-Article
+        Article
       </article>
     </main>
   );
