@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
-import { ArticlesContext } from '../context/ArticlesContext';
+import React from 'react';
+
 
 const Header = () => {
-  const { articles } = useContext(ArticlesContext);
+
   return (
-    <header>
-      Header
+    <header className="row ">
+      <div class="col-12 p-2">
+        <div class="p-2 border">
+          <h1>Informes</h1>
+        </div>
+      </div>
     </header>
   );
 };

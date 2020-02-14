@@ -8,9 +8,11 @@ import ArticlesProvider from '../context/ArticlesContext';
 function App() {
   return (
     <ArticlesProvider>
+      <div className="container px-2">
       <Header />
       <Main />
       <Footer />
+      </div>
     </ArticlesProvider>
   );
 }
