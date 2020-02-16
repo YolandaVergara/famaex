@@ -8,6 +8,7 @@ const Main = () => {
   return (
     <div className="articles">
       {articles.map((article, id) => {
+        console.log(article);
         return (
           <div key={article.id} className={`articles__${id}`}>
             <h2 className="articles__title">{article.name}</h2>

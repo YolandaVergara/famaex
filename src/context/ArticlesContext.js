@@ -15,9 +15,6 @@ const ArticlesProvider = (props) => {
       .then(data => saveArticles(data));
   }, []);
 
-const orderArticles = () =>{
-  
-}
   return (
 
     <ArticlesContext.Provider
