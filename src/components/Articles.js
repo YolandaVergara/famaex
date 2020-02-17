@@ -1,14 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ArticlesContext } from '../context/ArticlesContext';
 
 const Main = () => {
-  const { articles } = useContext(ArticlesContext);
-  const [order, saveOrder] = useState([]);
+  const { articles, saveArticles } = useContext(ArticlesContext);
 
+  const handleOrder = ev => {
+saveArticles() 
+  }
+
+  
+  console.log(articles)
   return (
     <div className="articles">
       {articles.map((article, id) => {
-        console.log(article);
         return (
           <div key={article.id} className={`articles__${id}`}>
             <h2 className="articles__title">{article.name}</h2>
@@ -16,8 +20,9 @@ const Main = () => {
           </div>
         )
       })}
-      <div className="select">
-        <select name="order">
+      <div className="select" value>
+        <select name="order" onChange={handleOrder}
+        >
           <option value="id">Ordenar por ID</option>
           <option value="date">Ordenar por fecha</option>
         </select>
