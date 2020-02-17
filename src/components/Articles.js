@@ -1,15 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ArticlesContext } from '../context/ArticlesContext';
 
 const Main = () => {
-  const { articles, saveArticles } = useContext(ArticlesContext);
+  const { articles } = useContext(ArticlesContext);
+  const [order, saveOrder] = useState({
+    order: 'id'
+  })
 
   const handleOrder = ev => {
-saveArticles() 
+    saveOrder({
+      ...order,
+      [ev.target.name]: ev.target.value
+    })
+    orderBy();
   }
 
-  
-  console.log(articles)
+  const orderBy = () => {
+    return order === 'id' ? articles.sort((a, b) => (a.id) - (b.id)) : articles.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+  }
+
+  console.log(order)
   return (
     <div className="articles">
       {articles.map((article, id) => {
