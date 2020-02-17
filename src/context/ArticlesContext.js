@@ -6,7 +6,7 @@ export const ArticlesContext = createContext();
 const ArticlesProvider = (props) => {
 
   const [articles, saveArticles] = useState([]);
-  const [order, saveOrder] = useState([]);
+  
   const url = 'http://5dfb6cf80301690014b8fb0a.mockapi.io/api/v1/reports';
 
   useEffect(() => {
