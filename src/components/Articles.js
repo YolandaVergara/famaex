@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ArticlesContext } from '../context/ArticlesContext';
 
 const Main = () => {
   const { articles } = useContext(ArticlesContext);
-  // const [order, saveOrder] = useState([]);
+  const [order, saveOrder] = useState([]);
 
   return (
     <div className="articles">
