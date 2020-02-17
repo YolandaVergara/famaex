@@ -16,10 +16,9 @@ const Main = () => {
   }
 
   const orderBy = () => {
-    return order === 'id' ? articles.sort((a, b) => (a.id) - (b.id)) : articles.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+    return order.order === 'id' ? articles.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)) : articles.sort((a, b) => (a.id) - (b.id))
   }
 
-  console.log(order)
   return (
     <div className="articles">
       {articles.map((article, id) => {
